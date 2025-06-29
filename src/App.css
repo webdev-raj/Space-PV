@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@font-face {
+    font-family: gil;
+    src: url("./assets/font/Gilroy-Regular.ttf");
+}
+*{
+    font-family: gil;
+    font-weight: bold;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
