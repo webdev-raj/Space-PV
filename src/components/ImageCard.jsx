@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react'
 
 const ImageCard = ({ dataPicked }) => {
   const [fetchDate, setFetchDate] = useState([]);
+  const api_key = import.meta.env.VITE_PROJECT_API_KEY
   useEffect(() => {
     async function dataFetch() {
-      const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=FhzdzYgx09lfscOFU1UIsPjgIi881UKQuCcIvaKK&date=${dataPicked.selectedYear}-${dataPicked.
+      const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${api_key}&date=${dataPicked.selectedYear}-${dataPicked.
         selectedMonth}-${dataPicked.
           selectedDate}`,{
             
@@ -14,7 +15,7 @@ const ImageCard = ({ dataPicked }) => {
       setFetchDate(nasaData)
     }
     dataFetch()
-  }, [dataPicked])
+  }, [dataPicked,api_key])
   console.log(fetchDate)
   return (
     <div className="w-full max-w-xl flex flex-col items-center bg-zinc-900 rounded-xl shadow-lg p-6 border border-zinc-700">
